@@ -1,0 +1,18 @@
+.note {
+    word-wrap: break-word;
+    border: 1px solid black;
+    width: 150px;
+    padding: 15px;
+    position: relative;
+    margin: 15px;
+}
+
+.note__btn{
+    background-image: url(../../Assets/cancel.png);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+}

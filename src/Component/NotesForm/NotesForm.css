@@ -1,0 +1,17 @@
+form{
+    padding: 15px;
+}
+
+form>textarea{
+    resize: none;
+    padding: 15px;
+    overflow: auto;
+
+}
+form>button{
+    background-image: url(../../Assets/send.png);
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: inherit;
+}
