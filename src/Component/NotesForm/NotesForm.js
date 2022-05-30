@@ -8,23 +8,28 @@ NotesForm.propTypes = {
 
 function NotesForm({add}) {
 
-    const[stateInput, setState] = useState('')
+    const[stateForm, setState] = useState({
+        text: ''
+    })
 
     const handleChangeInput = (evt)=>{
-        setState(evt.target.value);
+        const {name, value} = evt.target;
+        setState(prevState => ({...prevState, [name]: value}));
     }
 
     const addSubmit = (e)=>{
         e.preventDefault();
-        if(stateInput!==''){
-            add(stateInput)
-            setState('')
+        if(stateForm.text!==''){
+            add(stateForm)
+            setState({
+                text: '',
+            })
         }
     }
 
     return (
         <form className='notes-form' onSubmit={addSubmit}>
-            <textarea value={stateInput} onChange={handleChangeInput}/>
+            <textarea name='text' value={stateForm.text} onChange={handleChangeInput}/>
             <button/>
         </form>
     );

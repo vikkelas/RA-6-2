@@ -14,12 +14,13 @@ export class API{
     }
 
     addComponent(body){
-        const bodyObj = {text: body}
+        const formData = new FormData();
+        for(let key in body){
+            formData.append(key, body[key])
+        }
         return fetch(this.url, {
-            body: JSON.stringify(bodyObj),
+            body: formData,
             method: 'POST'
         })
     }
-
-
 }
