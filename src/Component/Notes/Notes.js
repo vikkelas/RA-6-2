@@ -15,12 +15,11 @@ class Notes extends Component {
     load(){
         this.api
             .load()
-            .then(response=>response.json())
-            .then(arrRes=>this.setState((state)=>state.notes = arrRes));
+            .then(res=>this.setState((state)=>state.notes = res));
     }
 
     addNode = (text)=>{
-        this.api.addComponent(text).then(()=>this.load())
+        this.api.add(text).then(()=>this.load())
     }
 
     deleteNote = (id)=>{

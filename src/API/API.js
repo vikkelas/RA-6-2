@@ -4,7 +4,8 @@ export class API{
     }
 
     load(){
-        return fetch(this.url);
+        return fetch(this.url)
+            .then(response=>response.json());
     }
 
     delete(id){
@@ -13,13 +14,9 @@ export class API{
         })
     }
 
-    addComponent(body){
-        const formData = new FormData();
-        for(let key in body){
-            formData.append(key, body[key])
-        }
+    add(body){
         return fetch(this.url, {
-            body: formData,
+            body: JSON.stringify(body),
             method: 'POST'
         })
     }
